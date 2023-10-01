@@ -1,0 +1,398 @@
+cd src
+
+mkdir components 
+cd components
+
+ mkdir Card
+ cd Card
+ touch Card.jsx
+  echo "const Card = () =>  { return ( <div> <h1> Card Component </h1> </div>) } 
+  export default Card; " >  Card.jsx
+ cd ..
+
+ mkdir CardDetails
+ cd CardDetails 
+ touch CardDetails.jsx
+  echo "const CardDetails = () =>  { return ( <div> <h1> CardDetails Component </h1> </div>) } 
+  export default CardDetails; " >  CardDetails.jsx
+ cd ..
+
+ 
+ mkdir PrivateRoute
+ cd PrivateRoute 
+ touch PrivateRoute.jsx
+  echo "const PrivateRoute = () =>  { return ( <div> <h1> PrivateRoute Component </h1> </div>) } 
+  export default PrivateRoute; " >  PrivateRoute.jsx
+ cd ..
+
+mkdir Root
+cd Root 
+touch Root.jsx
+  echo " import { Outlet } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
+const Root = () => {
+  return (
+    <div>
+      <Header></Header>
+      <div>
+        <Outlet></Outlet>
+      </div>
+      <Footer></Footer>
+    </div>
+  );
+};
+
+export default Root; " >  Root.jsx
+ cd ..
+
+ mkdir Route
+ cd Route 
+ touch Route.jsx
+  echo " import { createBrowserRouter } from 'react-router-dom';
+import Root from '../Root/Root';
+import Home from '../../pages/Home/Home';
+import Login from '../../pages/Login/Login';
+import Register from '../../pages/Register/Register';
+import Blog from '../../pages/Blog/Blog';
+import About from '../../pages/About/About';
+
+const Route = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root></Root>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/register',
+        element: <Register></Register>,
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>,
+      },
+      {
+        path: '/about',
+        element: <About></About>,
+      },
+    ],
+  },
+]);
+
+export default Route;
+ " >  Route.jsx
+ cd ..
+
+ mkdir Banner
+ cd Banner
+ touch Banner.jsx
+  echo "const Banner = () =>  { return ( <div> <h1> Banner Component </h1> </div>) } 
+  export default Banner; " >  Banner.jsx
+ cd ..
+
+ mkdir Header
+ cd Header
+ touch Header.jsx
+  echo " import { NavLink } from 'react-router-dom';
+
+const Header = () => {
+  const menu = (
+    <>
+      <li>
+        <NavLink
+          to='/'
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'text-red-500 underline' : ''
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to='/about'
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'text-red-500 underline' : ''
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to='/blog'
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'text-red-500 underline' : ''
+          }
+        >
+          Blog
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to='/login'
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'text-red-500 underline' : ''
+          }
+        >
+          Login
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to='/register'
+          className={({ isActive, isPending }) =>
+            isPending ? 'pending' : isActive ? 'text-red-500 underline' : ''
+          }
+        >
+          Register
+        </NavLink>
+      </li>
+    </>
+  );
+  return (
+    <div>
+      <div className='navbar bg-base-100'>
+        <div className='navbar-start'>
+          <div className='dropdown'>
+            <label tabIndex={0} className='btn btn-ghost lg:hidden'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-5 w-5'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M4 6h16M4 12h8m-8 6h16'
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+            >
+              {menu}
+            </ul>
+          </div>
+          <a className='btn btn-ghost normal-case text-xl'>daisyUI</a>
+        </div>
+        <div className='navbar-center hidden lg:flex'>
+          <ul className='menu menu-horizontal px-1'>{menu}</ul>
+        </div>
+        <div className='navbar-end'>
+          <a className='btn'>Button</a>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Header; " >  Header.jsx
+ cd ..
+
+ mkdir Footer
+ cd Footer
+ touch Footer.jsx
+  echo "const Footer = () =>  { return ( <div> <h1> Footer Component </h1> </div>) } 
+  export default Footer; " >  Footer.jsx
+ cd ..
+
+ cd ..
+
+ mkdir pages
+ cd pages
+
+ mkdir Home
+ cd Home 
+ touch Home.jsx
+  echo "const Home = () =>  { return ( <div> <h1> Home Component </h1> </div>) } 
+  export default Home; " >  Home.jsx
+ cd ..
+
+ mkdir About
+ cd About 
+ touch About.jsx
+  echo "const About = () =>  { return ( <div> <h1> About Component </h1> </div>) } 
+  export default About; " >  About.jsx
+ cd ..
+
+ mkdir Blog
+ cd Blog 
+ touch Blog.jsx
+  echo "const Blog = () =>  { return ( <div> <h1> Blog Component </h1> </div>) } 
+  export default Blog; " >  Blog.jsx
+ cd ..
+
+ mkdir Login
+ cd Login 
+ touch Login.jsx
+  echo " const Login = () => {
+  return (
+    <div>
+      <div className='hero min-h-screen bg-base-200'>
+        <div className='hero-content flex-col  '>
+          <div className='text-center lg:text-left'>
+            <h1 className='text-4xl font-bold'> Login now </h1>
+          </div>
+          <div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+            <div className='card-body'>
+              <form>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Email</span>
+                  </label>
+                  <input
+                    type='text'
+                    placeholder='email'
+                    className='input input-bordered'
+                  />
+                </div>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Password</span>
+                  </label>
+                  <input
+                    type='text'
+                    placeholder='password'
+                    className='input input-bordered'
+                  />
+                  <label className='label'>
+                    <a href='#' className='label-text-alt link link-hover'>
+                      Forgot password?
+                    </a>
+                  </label>
+                </div>
+                <div className='form-control mt-6'>
+                  <button className='btn btn-primary'>Login</button>
+                </div>
+              </form>
+              <div>
+                <p>
+                  New user please? 
+                  <span className='btn btn-link'>Register</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Login; " >  Login.jsx
+ cd ..
+
+ mkdir Register
+ cd Register 
+ touch Register.jsx
+  echo "const Register = () => {
+  return (
+    <div>
+      <div className='hero min-h-screen bg-base-200'>
+        <div className='hero-content flex-col  '>
+          <div className='text-center lg:text-left'>
+            <h1 className='text-4xl font-bold'> Register now </h1>
+          </div>
+          <div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+            <div className='card-body'>
+              <form>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Your Name</span>
+                  </label>
+                  <input
+                    type='text'
+                    name='name'
+                    placeholder='Your Name'
+                    className='input input-bordered'
+                  />
+                </div>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Email</span>
+                  </label>
+                  <input
+                    type='email'
+                    placeholder='email'
+                    name='email'
+                    className='input input-bordered'
+                  />
+                </div>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Password</span>
+                  </label>
+                  <input
+                    type='password'
+                    placeholder='password'
+                    name='password'
+                    className='input input-bordered'
+                  />
+                  <label className='label'>
+                    <a href='#' className='label-text-alt link link-hover'>
+                      Forgot password?
+                    </a>
+                  </label>
+                </div>
+                <div className='form-control mt-6'>
+                  <button className='btn btn-primary'>Login</button>
+                </div>
+              </form>
+              <div>
+                <p>
+                  I Have an account, please?
+                  <span className='btn btn-link'>Log in</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Register; " >  Register.jsx
+ cd ..
+
+ mkdir Profile
+ cd Profile 
+ touch Profile.jsx
+ echo "const Profile = () =>  { return ( <div> <h1> Profile Component </h1> </div>) } 
+  export default Profile; " >  Profile.jsx
+ cd ..
+
+ mkdir Dashbord
+ cd Dashbord 
+ touch Dashbord.jsx
+  echo "const Dashbord = () =>  { return ( <div> <h1> Dashbord Component </h1> </div>) } 
+  export default Dashbord; " >  Dashbord.jsx
+ cd ..
+
+ cd ..
+
+ echo " import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { RouterProvider } from 'react-router-dom';
+import Route from './components/Route/Route';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={Route}></RouterProvider>
+  </React.StrictMode>
+);
+ " >  main.jsx
+cd ..
+
+
